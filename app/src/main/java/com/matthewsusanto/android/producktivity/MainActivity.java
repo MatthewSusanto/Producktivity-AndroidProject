@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView timmy;
     private Button startPauseBtn;
     private Button resetBtn;
-    private CheckBox focusModeCb;
+    private Switch focusModeCb;
     private TextView ducks;
     private static int duckCount;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
     private static boolean mInFocusMode = false;
-    private static final long START_TIME = 5000;
+    private static final long START_TIME = 1800000;
     private long mTimeLeftInMillis = START_TIME;
     private ImageView ImageView1;
     private ImageView ImageView2;
@@ -38,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private ImageView ImageView5;
     private TextView duckLeftTv;
     private int duckArmy;
+    private TextView totalTime;
+    int duckInHours;
+    int duckInMinutes;
+    int duckInSeconds;
 //    private Button helpBtn;
 
 
@@ -46,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 
 
@@ -64,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         // ==================================================
 
         ducks = findViewById(R.id.ducks);
-        ducks.setText("You have " + duckArmy + "  ducks!");
+        ducks.setText("Press the Start button!");
         startPauseBtn = findViewById(R.id.startPauseBtn);
         resetBtn = findViewById(R.id.resetBtn);
         timmy = findViewById(R.id.timmy);
@@ -75,6 +82,15 @@ public class MainActivity extends AppCompatActivity {
         ImageView4 = findViewById(R.id.imageView4);
         ImageView5 = findViewById(R.id.imageView5);
         duckLeftTv = findViewById(R.id.duckLeftTv);
+        totalTime = findViewById(R.id.totalTime);
+
+
+        duckInHours = ((duckCount * 1800)/60)/60;
+        duckInMinutes = ((duckCount * 1800)/60)%60;
+
+        duckInSeconds = duckCount * 1800;
+
+        totalTime.setText("Which is equivalent to " + duckInHours + " hours and "+ duckInMinutes + " minutes of productivity!");
 
         if((duckCount % 5)== 0){
 
@@ -156,10 +172,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (focusModeCb.isChecked()) {
-                    Toast.makeText(getApplicationContext(), "CHECKED BUDDY", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "You are now in focus mode", Toast.LENGTH_SHORT).show();
                     mInFocusMode = true;
 
                 } else {
+                    Toast.makeText(getApplicationContext(), "You are no longer in focus mode", Toast.LENGTH_SHORT).show();
                     mInFocusMode = false;
                 }
 
@@ -185,20 +202,20 @@ public class MainActivity extends AppCompatActivity {
 
                         pauseTimer();
                         mNotificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
-                        Toast.makeText(getApplicationContext(), "DND Deactivated", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Time to take a break!", Toast.LENGTH_SHORT).show();
 
                     } else if (mInFocusMode == true) {
 
 
                         startTimerFocus();
                         mNotificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALARMS);
-                        Toast.makeText(getApplicationContext(), "DND Activated", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "You can start being productive now!", Toast.LENGTH_SHORT).show();
 
 
                     } else {
                         startTimer();
                         mNotificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALARMS);
-                        Toast.makeText(getApplicationContext(), "DND Activated", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "You can start being productive now", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -232,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 mTimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
+                ducks.setText("You have " + duckArmy + "  ducks!");
             }
 
             @Override
@@ -346,6 +364,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onTick(long millisUntilFinished) {
                     mTimeLeftInMillis = millisUntilFinished;
                     updateCountDownText();
+                    ducks.setText("You have " + duckArmy + "  ducks!");
                 }
 
                 @Override
