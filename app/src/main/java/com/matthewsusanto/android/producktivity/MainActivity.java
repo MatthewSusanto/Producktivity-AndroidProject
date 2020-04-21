@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView totalTime;
     private TextView duckLeftTv;
     private static int duckCount;
-    private static final long START_TIME = 5000;
+    private static final long START_TIME = 1800000;
     private long mTimeLeftInMillis = START_TIME;
     private int duckArmy;
     int duckInHours;
