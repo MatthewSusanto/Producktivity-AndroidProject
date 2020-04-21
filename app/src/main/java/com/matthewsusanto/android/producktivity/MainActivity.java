@@ -22,29 +22,29 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private TextView timmy;
+
     private Button startPauseBtn;
     private Button resetBtn;
     private Switch focusModeCb;
+    private TextView timmy;
     private TextView ducks;
+    private TextView totalTime;
+    private TextView duckLeftTv;
     private static int duckCount;
-    private CountDownTimer mCountDownTimer;
-    private boolean mTimerRunning;
-    private static boolean mInFocusMode = false;
-    private static final long START_TIME = 1800000;
+    private static final long START_TIME = 5000;
     private long mTimeLeftInMillis = START_TIME;
+    private int duckArmy;
+    int duckInHours;
+    int duckInMinutes;
+    int duckInSeconds;
     private ImageView ImageView1;
     private ImageView ImageView2;
     private ImageView ImageView3;
     private ImageView ImageView4;
     private ImageView ImageView5;
-    private TextView duckLeftTv;
-    private int duckArmy;
-    private TextView totalTime;
-    int duckInHours;
-    int duckInMinutes;
-    int duckInSeconds;
-//    private Button helpBtn;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private static boolean mInFocusMode = false;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         ducks = findViewById(R.id.ducks);
         ducks.setText("Press the Start button!");
+
         startPauseBtn = findViewById(R.id.startPauseBtn);
         resetBtn = findViewById(R.id.resetBtn);
         timmy = findViewById(R.id.timmy);
@@ -84,88 +85,61 @@ public class MainActivity extends AppCompatActivity {
         duckLeftTv = findViewById(R.id.duckLeftTv);
         totalTime = findViewById(R.id.totalTime);
 
-
         duckInHours = ((duckCount * 1800)/60)/60;
         duckInMinutes = ((duckCount * 1800)/60)%60;
-
         duckInSeconds = duckCount * 1800;
+
+
+
 
         totalTime.setText("Which is equivalent to " + duckInHours + " hours and "+ duckInMinutes + " minutes of productivity!");
 
-        if((duckCount % 5)== 0){
+        // this to show how many current ducklings you have
 
+        if((duckCount % 5)== 0){
             ImageView1.setVisibility(View.VISIBLE);
             ImageView2.setVisibility(View.VISIBLE);
             ImageView3.setVisibility(View.VISIBLE);
             ImageView4.setVisibility(View.VISIBLE);
             ImageView5.setVisibility(View.VISIBLE);
             duckLeftTv.setText("You need 5 more ducklings to collect a duck!");
-
-
         }
         else if((duckCount % 5)== 1){
-
-
             ImageView1.setVisibility(View.VISIBLE);
             ImageView2.setVisibility(View.INVISIBLE);
             ImageView3.setVisibility(View.INVISIBLE);
             ImageView4.setVisibility(View.INVISIBLE);
             ImageView5.setVisibility(View.INVISIBLE);
             duckLeftTv.setText("You need 4 more ducklings to collect a duck!");
-
         }
-
         else if((duckCount % 5)== 2){
-
-
             ImageView1.setVisibility(View.VISIBLE);
             ImageView2.setVisibility(View.VISIBLE);
             ImageView3.setVisibility(View.INVISIBLE);
             ImageView4.setVisibility(View.INVISIBLE);
             ImageView5.setVisibility(View.INVISIBLE);
             duckLeftTv.setText("You need 3 more ducklings to collect a duck!");
-
         }
-
         else if((duckCount % 5)== 3){
-
-
             ImageView1.setVisibility(View.VISIBLE);
             ImageView2.setVisibility(View.VISIBLE);
             ImageView3.setVisibility(View.VISIBLE);
             ImageView4.setVisibility(View.INVISIBLE);
             ImageView5.setVisibility(View.INVISIBLE);
             duckLeftTv.setText("You need 2 more ducklings to collect a duck!");
-
         }
         else if((duckCount % 5)== 4){
-
-
             ImageView1.setVisibility(View.VISIBLE);
             ImageView2.setVisibility(View.VISIBLE);
             ImageView3.setVisibility(View.VISIBLE);
             ImageView4.setVisibility(View.VISIBLE);
             ImageView5.setVisibility(View.INVISIBLE);
             duckLeftTv.setText("You need 1 more duckling to collect a duck!");
-
         }
 
 
-        // what this one does, it opens a tab to allow permission to turn on DND, and you need to manually click it
-        // and then if you turn on the dnd permission it will allow the method to run
 
-
-
-
-//        helpBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-////                startActivityForResult(new
-////                        Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS), 0);
-//
-//            }
-//        });
+        //determine whether focusmode is on or off
 
         focusModeCb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        // it directs user to DND setting in order to allow access if the user hasn't
 
         startPauseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,6 +215,9 @@ public class MainActivity extends AppCompatActivity {
         updateCountDownText();
 
     }
+
+
+    //method for timer
 
     private void startTimer() {
 
@@ -331,6 +308,11 @@ public class MainActivity extends AppCompatActivity {
                     duckArmy = duckCount/5;
                     ducks.setText("You have " + duckArmy + "  ducks!");
 
+                    duckInHours = ((duckCount * 1800)/60)/60;
+                    duckInMinutes = ((duckCount * 1800)/60)%60;
+                    duckInSeconds = duckCount * 1800;
+                    totalTime.setText("Which is equivalent to " + duckInHours + " hours and "+ duckInMinutes + " minutes of productivity!");
+
 
 
 
@@ -352,6 +334,8 @@ public class MainActivity extends AppCompatActivity {
         resetBtn.setVisibility(View.INVISIBLE);
 
     }
+
+    //method for focus timer
 
     private void startTimerFocus() {
 
@@ -445,6 +429,12 @@ public class MainActivity extends AppCompatActivity {
                     ducks.setText("You have " + duckArmy + "  ducks!");
 
 
+                    duckInHours = ((duckCount * 1800)/60)/60;
+                    duckInMinutes = ((duckCount * 1800)/60)%60;
+                    duckInSeconds = duckCount * 1800;
+                    totalTime.setText("Which is equivalent to " + duckInHours + " hours and "+ duckInMinutes + " minutes of productivity!");
+
+
 
 
                     mTimeLeftInMillis = START_TIME;
@@ -459,6 +449,8 @@ public class MainActivity extends AppCompatActivity {
             resetBtn.setVisibility(View.INVISIBLE);
         }
     }
+
+    // the method for the timer that ticks every second
 
     private void updateCountDownText() {
 
@@ -485,6 +477,8 @@ public class MainActivity extends AppCompatActivity {
         resetBtn.setVisibility(View.VISIBLE);
 
     }
+
+    //method to open the dialog
 
     private void openDialog(){
 
