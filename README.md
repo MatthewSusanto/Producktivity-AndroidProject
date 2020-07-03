@@ -16,13 +16,9 @@ ___
 ___
 ## ``How to install and run the application?``
 
-You need to make sure that you have your package manager installed
-
-Please make sure that you are in the right directory
-
-1. **`cd essentials`** cd to the essentials directory
-2. **`npm install`** once you are in essentials directory, install the dependencies
-3. **`npm start`** start the application by using local a server (this is in development mode)
+1. **`Run your Android Studio`**
+2. **`file > open > (path to the producktivity directory)`**
+3. **`Shift+F10 to run it using the Android Studio emulator (make sure it is installed)`**
 
 This might take a while to load up
 ___
