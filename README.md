@@ -42,7 +42,7 @@ ___
   <br />
 ![](https://github.com/MatthewSusanto/resource/blob/master/producktivityGIF/TimerShowcaseFocus.gif?)
 ___
-- **Deactivating Focus Mode will pause the timer once you earn a duckling, allowing you to take breaks in between. Pausing the timer will let you reset the timer back to 00:00**  <br /> 
+- **Deactivating Focus Mode will pause the timer once you earn a duckling, allowing you to take breaks in between. Pausing the timer will let you reset the timer back to 00:00**  <br />   <br />
 ![](https://github.com/MatthewSusanto/resource/blob/master/producktivityGIF/TimerShowcasePause.gif?)  <br />
   <br />
 ___
