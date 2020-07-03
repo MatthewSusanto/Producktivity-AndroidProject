@@ -27,7 +27,7 @@ ___
 2. Once the start button is pressed, it will activate a 30 minutes timer. Once finished, it will reward you a duckling. You need 5 ducklings to get a duck as a reward.
 3. You will then take a 5 minutes break after you earn a duckling, you can also activate "Focus Mode" to skip these breaks.
 4. You can pause the running timer and it will give you an option to restart the timer back to 00:00.
-5. **Keep in mind that in the preview below, the timer will be 5 seconds instead of 30 minutes. The preview GIF speed will also be faster than the actual application.  <br />
+5. **Keep in mind that in the preview below, the timer will be 5 seconds instead of 30 minutes. The preview GIF speed will also be faster than the actual application.**  <br />
 ___
 - **The application will ask you to allow permission to access your phone DND settings the first time you run the application**  <br />
   <br />
