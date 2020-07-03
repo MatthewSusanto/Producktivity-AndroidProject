@@ -1,6 +1,6 @@
 # ``PRODUCKTIVITY ANDROID APP``
-**This is a productivity application for Android devices I built using Java and XML.**
-**The purpose of this application is to increase the productivity of the user by using the Pomodoro inspired technique. It eliminates phone distractions and notification while the application is active.**
+**This is a productivity application for Android devices I built using Java and XML.**  <br />
+**The purpose of this application is to increase the productivity of the user by using the Pomodoro inspired technique. It eliminates phone distractions and notification while the application is active.**  <br />
 **The application keeps track of how much time you spent being productive, sets up the environment to do productive activities, and rewards your productivity.**
 ___
 **I will be showing:**
