@@ -1,5 +1,5 @@
 # ``PRODUCKTIVITY ANDROID APP``
-**This is a productivity application for Android devices I built using Java and XML.**  <br />
+**This is a productivity application for Android devices I built using Java.**  <br />
   <br />
 **The purpose of this application is to increase the productivity of the user by using the Pomodoro inspired technique. It eliminates phone distractions and notification while the application is active.**  <br />
   <br />
